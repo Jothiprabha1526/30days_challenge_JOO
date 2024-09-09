@@ -25,7 +25,7 @@ void sort012(int a[], int n) {
 }
 
 int main() {
-    int arr[] = {0, 1, 2, 1, 0, 2, 0, 1, 2}; #Can modify for all test cases
+    int arr[] = {0, 1, 2, 1, 0, 2, 0, 1, 2};
     int n = sizeof(arr)/sizeof(arr[0]);
     
     sort012(arr, n);
