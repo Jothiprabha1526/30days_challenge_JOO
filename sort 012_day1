@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+void sort012(int a[], int n) {
+    int count0 = 0;
+    int count1 = 0;
+    int count2 = 0;
+  
+    for(int i = 0; i < n; i++) {
+        if (a[i] == 0)
+            count0++;
+        else if (a[i] == 1)
+            count1++;
+        else
+            count2++;
+    }
+    
+    for(int j = 0; j < count0; j++)
+        a[j] = 0;
+        
+    for(int j = count0; j < count0 + count1; j++)
+        a[j] = 1;
+        
+    for(int j = count0 + count1; j < n; j++)
+        a[j] = 2;
+}
+
+int main() {
+    int arr[] = {0, 1, 2, 1, 0, 2, 0, 1, 2}; #Can modify for all test cases
+    int n = sizeof(arr)/sizeof(arr[0]);
+    
+    sort012(arr, n);
+    
+    printf("Sorted array: ");
+    for(int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    
+    return 0;
+}
