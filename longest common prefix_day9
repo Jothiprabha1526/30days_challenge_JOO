@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <string.h>
+
+char* longestCommonPrefix(char strs[][200], int strsSize) {
+    if (strsSize == 0) {
+        return "";
+    }
+
+    static char prefix[200];
+    strcpy(prefix, strs[0]);
+
+    for (int i = 1; i < strsSize; i++) {
+        int j = 0;
+        while (prefix[j] && strs[i][j] && prefix[j] == strs[i][j]) {
+            j++;
+        }
+        prefix[j] = '\0';
+        if (j == 0) {
+            return "";
+        }
+    }
+
+    return prefix;
+}
+
+int main() {
+    char strs[][200] = {"flo"};
+    int strsSize = 3;
+    printf("\"%s\"\n", longestCommonPrefix(strs, strsSize));
+
+    return 0;
+}
