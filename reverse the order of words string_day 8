@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <string.h>
+void main() {
+    char a[] = "  my   name is  jothi  ";  
+    int i = 0, j = 0, k;
+    int length = strlen(a);
+    while (length > 0 && a[length - 1] == ' ') {
+        length--;  
+    }
+    while (i < length && a[i] == ' ') {
+        i++;
+    }
+    if (i == length) {
+        printf("");  
+        return;
+    }
+    j = length - 1; 
+    while (j >= i) {
+        while (j >= i && a[j] == ' ') {
+            j--; 
+        }
+        int end = j;
+        while (j >= i && a[j] != ' ') {
+            j--;
+        }
+        for (k = j + 1; k <= end; k++) {
+            printf("%c", a[k]);
+        }
+        if (j > i) {
+            printf(" ");
+        }
+    }
+}
